@@ -1,72 +1,68 @@
 import java.util.Scanner;
-import java.lang.Math.*;
 
 // Mario Lopez
-// Inventory Ordering Tool -This program is intented to help count how many items of certain products are
-//required to order. Obtain 
+//This program demonstrates different coding in java
 
-// I've learned how to create a new project in Eclipse, 
-//How to load a project from OneDrive, 
-//The shortcut sysout - Ctrl + space
+//sysout - Ctrl + space
 //Ctrl + shift + f
-//int - integer, double - decimals, String - words
-// variable - place holder for something, a location in memory
 
 public class Main {
-    public static void inventoryRange(int max, int n) {
 
-        if (n >= 0 && n < max) {
-            System.out.println("You need to order the following items: ");
-            System.out.println(max - n);
-        } else {
-            System.out.println("Inventory is good! No need to order");
-        }
-    }
-//vtftftf
-    public static void main(String[] args) {
-        // Startup
-        System.out.println("Welcome to the Smart Calculation Tool!");
-        System.out.println("You are entering the Ordering Tool");
-        Scanner input = new Scanner(System.in);
-        System.out.println("Please enter shelf count for product1:");
-        int max = input.nextInt();
-        System.out.println("Enter shelf count for product2:");
-        int n = input.nextInt();
-        // invoke method
-        inventoryRange(max, n);
-        // Average per customer
-        System.out.println();
-        System.out.println("Entering Average per Customer");
-        System.out.println("Enter daily customer count");
-        double customers = input.nextDouble();
-        System.out.println("Enter daily total sales");
-        double sales = input.nextDouble();
-        double average = (sales / customers);
-        double averageRound = Math.round(average * 100.0) / 100.0;
-        System.out
-                .println("The average sales per customer is $" + averageRound);
-        // End of Day Deposit
-        System.out.println();
-        System.out.println("Entering End of Day Reports");
-        System.out.println("Please enter AM morning cash deposit amount");
-        double amCash = input.nextDouble();
-        System.out.println("Enter PM cash deposit amount ");
-        double pmCash = input.nextDouble();
-        System.out.println("Enter checks deposit amount");
-        double checks = input.nextDouble();
-        double EOD = (amCash + pmCash + checks);
-        System.out.println("EOD for today is: " + EOD);
-        System.out.println("Today's deposit balance is: $" + (EOD - sales));
-        System.out.println();
-        System.out.println("Thank you for using The Smart Calculation Tool");
-        // operators demostration
-        System.out.println();
-        int product5 = 12;
-        int totalboxes = 5;
-        System.out.println(
-                "Total number of product5 is: " + (product5 * totalboxes));
-        System.out.println("The remainer of product5 and total boxes is: "
-                + (product5 % totalboxes));
-    }
+  public static void main(String[] args) {
+    System.out.println("Welcome to Mario's program!");
+    System.out.println();
+    System.out.println("**Entering Car Sale Tool** ");
+    // variables for retail price and down payment
+    double retail, down;
 
+    Scanner keyboard = new Scanner(System.in);
+
+    CarSale car;
+
+    System.out.println("Enter car's retail price: ");
+    retail = keyboard.nextDouble();
+    System.out.println("Enter Downpayment");
+    down = keyboard.nextDouble();
+
+    car = new CarSale(retail, down);
+
+    System.out.println("Retail price: " + car.getRetailPrice());
+    System.out.println("  Dealer fee: " + car.getDealerFee());
+    System.out.println("   Sales Tax: " + car.getTaxPercent());
+    System.out.println(" Downpayment: " + car.getDownPayment());
+    System.out.println("Amount to be Financed: " + car.getAmountToFinance());
+    System.out.println();
+
+    // if-else example
+    System.out.println("**Entering Grade Calculator** ");
+    System.out.println("Enter Test Score: ");
+    double testscore;
+    String grade;
+    testscore = keyboard.nextDouble();
+
+    if (testscore >= 90) {
+      grade = "A";
+    } else if (testscore >= 80) {
+      grade = "B";
+    } else if (testscore >= 70) {
+      grade = "C";
+    } else if (testscore >= 60) {
+      grade = "D";
+    } else {
+      grade = "F";
+    }
+    // Casting
+    Object grade1 = "Grade is = ";
+    String casted = (String) grade1;
+    System.out.println(casted + grade);
+    System.out.println();
+
+    // Manipulating Characters in Strings
+    String end = "This is the End of program ";
+    String endtext = end.substring(12, 31);
+    System.out.println(endtext.toUpperCase());
+
+    keyboard.close();
+
+  }
 }
