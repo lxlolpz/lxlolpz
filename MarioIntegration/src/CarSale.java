@@ -21,7 +21,7 @@ public class CarSale {
     totaltax = Math.round(totaltax * 100);
     totaltax = totaltax / 100;
     totalCost = retailPrice + totaltax + dealerFee;
-    amountToFinance = totalCost - downPayment;
+    amountToFinance = Math.round(totalCost - downPayment);
   }
 
   // Method Accessors
